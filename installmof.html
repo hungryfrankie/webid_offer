@@ -1,0 +1,794 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    </head>
+
+
+
+  <body>
+files to change
+<br><br><br>
+ in theme/admin/Modern/sidebar-setting.tpl
+ <br>
+find  around line 24
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150"  readonly  class='POL'>
+    <li class="list-group-item"><a href="{SITEURL}admin/buyitnow.php">{L_2__0025}</a></li>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4" cols="150" readonly>
+    <li class="list-group-item"><a href="{SITEURL}admin/makeoffer.php">{L_2__1025}</a></li> 
+</textarea></div>
+</div>
+<br>
+in admin/fees.php
+<br>
+find  around line 33
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'endauc_fee' => 1
+</textarea>
+<br>
+add before
+<br>
+<textarea rows="4" cols="150" readonly>
+    'offer_fee' => 0,
+</textarea></div>
+<br>
+find  around line 50
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'endauc_fee' => $MSG['791']
+</textarea>
+<br>
+add before 
+<br>
+<textarea rows="4" cols="150" readonly>
+     'offer_fee' => $MSG['9035'],
+</textarea></div>
+<br>
+
+in  theme/modern/user_menu_header.tpl
+<br>
+
+around line 72 find
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <a class="list-group-item" href="selling.php">{L_453}</a>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    <a class="list-group-item" href="viewselleroffers.php">{L_1453}</a>
+</textarea></div>
+<br>
+find  around line 80
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <a class="list-group-item" href="buying.php">{L_454}</a>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    <a class="list-group-item" href="youroffers.php">{L_1454}</a>
+</textarea></div>
+<br>
+in admin/editauction.php
+<br>
+find around line 189
+
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    highlighted = :highlighted,
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    make_offer = :make_offer,
+    make_offer_reject = :offer_reject,
+    make_offer_accept = :offer_accept,
+</textarea></div>
+<br>
+find  around line 226
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $params[] = array(':auc_id', $_POST['id'], 'int');
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    $params[] = array(':make_offer', $_POST['make_offer'], 'bool');
+    $params[] = array(':offer_reject', $_POST['offer_reject'], 'float');
+    $params[] = array(':offer_accept', $_POST['offer_accept'], 'float');
+    // eof make offer
+</textarea></div>
+<br>
+
+find around line
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'SUSPENDED' => ($auction_data['suspended'] == 0) ? $MSG['no'] : $MSG['yes'], 
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    //eof sizes
+'MAKE_OFFER_Y' => ($auction_data['make_offer'] == 'yes') ? 'checked' : '',
+'MAKE_OFFER_N' => ($auction_data['make_offer'] == 'yes') ? '' : 'checked',
+'MAKE_OFFER' =>$auction_data['make_offer'],
+'OFFER_REJECT' => $system->print_money_nosymbol($auction_data['make_offer_reject'],false),
+'OFFER_ACCEPT' => $system->print_money_nosymbol($auction_data['make_offer_accept'],false),
+// bof make offer
+</textarea></div>
+<br>
+in theme/adminModern/editauction.tpl
+<br>
+find  around line 119
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <tr>
+        <td align="right">{L_497}</td>
+        <td><input type="text" name="buy_now" size="40" maxlength="40" value="{BN_PRICE}"></td>
+    </tr>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    <tr>
+        <td align="right">{L_9021}</td>
+        <td>
+            <input type="radio" name="make_offer" value="no" {MAKE_OFFER_N}> {L_no}
+            <input type="radio" name="make_offer" value="yes" {MAKE_OFFER_Y}> {L_yes}
+        </td>
+    </tr>
+    <tr>
+        <td align="right">{L_9022}</td>
+        <td><input type="text" name="offer_reject" size="40" maxlength="40" value="{OFFER_REJECT}"></td>
+    </tr>
+    <tr>
+        <td align="right">{L_9023}</td>
+        <td><input type="text" name="offer_accept" size="40" maxlength="40" value="{OFFER_ACCEPT}"></td>
+    </tr>
+</textarea></div>
+<br>
+i think this is done with admin section  
+<br>
+in sell.php
+<br>
+find adound line 319
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    if ($buy_now == 'no') {
+        $buy_now_price = 0;
+    }
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    if ($make_offer == 'no') {
+        $make_offer_accept = 0;
+        $make_offer_reject=0;
+    }
+    // eof make offer
+</textarea></div>
+
+<br>
+find adound line 390
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    if ($corrected_fee < 0) {
+        $corrected_fee = 0;
+    }
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    ///bof make offer
+    if ($system->SETTINGS['offer_available'] == 'y') {
+        $template->assign_vars(array(
+            'B_SHOW_OFFERME' => 'true'
+        ));
+      
+       if ($system->SETTINGS['offer_available_for'] == '1'){
+        $template->assign_vars(array(
+            'B_SHOW_OFFERME_DUTCHONLY' => 'true'
+        ));
+        }
+      
+    }
+// eof make offer
+</textarea></div>
+<br>
+find adound line 440
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'B_SHIPPING' => ($system->SETTINGS['shipping'] == 'y'),
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    'MAKE_OFFER_Y' => ($make_offer == 'yes') ? 'checked' : '',
+    'MAKE_OFFER_N' => ($make_offer == 'yes') ? '' : 'checked',
+    'MAKE_OFFER' =>  $make_offer,
+    'MAKE_OFFER_REJECT' =>  $system->print_money($make_offer_reject, false),
+    'MAKE_OFFER_ACCEPT' =>  $system->print_money($make_offer_accept, false),
+  //eof make offer
+</textarea></div>
+<br>
+find adound line 550
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'subtitle_fee' => 0,
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    //bof make offer
+    'offer_fee' => 0,
+    //eof make offer
+</textarea></div>
+
+<br>
+find around line 590
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    if ($row['type'] == 'relist_fee' && strlen($relist) > 0) {
+        $relist_fee = $row['value'];
+    }
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+            if ($row['type'] == 'offer_fee' && strlen($relist) > 0) {
+                $offer_fee = $row['value'];
+            }
+            // eof make offer
+</textarea></div>
+<br>
+find around line 615
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    if ($corrected_fee < 0) {
+        $corrected_fee = 0;
+    }
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    //bof make offer
+    if ($system->SETTINGS['offer_available'] == 'y') {
+        $template->assign_vars(array(
+            'B_SHOW_OFFERME' => 'true'
+        ));
+        if ($system->SETTINGS['offer_available_for'] == '0'){
+            $template->assign_vars(array(
+                'B_SHOW_OFFERME_ZERO' => 'true'
+            ));
+            }
+       if ($system->SETTINGS['offer_available_for'] == '1'){
+        $template->assign_vars(array(
+            'B_SHOW_OFFERME_ONE' => 'true'
+        ));
+        }
+        if ($system->SETTINGS['offer_available_for'] == '2'){
+            $template->assign_vars(array(
+                'B_SHOW_OFFERME_TWO' => 'true'
+            ));
+            }
+    }
+// eof make offer
+</textarea></div>
+<br>
+find around line 725
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'B_SUBTITLE' => ($system->SETTINGS['subtitle'] == 'y'),
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    'MAKE_OFFER_Y' => ($make_offer == 'yes') ? 'checked' : '',
+    'MAKE_OFFER_N' => ($make_offer == 'yes') ? '' : 'checked',
+    'MAKE_OFFER' =>$make_offer,
+    'MAKE_OFFER_REJECT' => $system->print_money_nosymbol($make_offer_reject,false),
+    'MAKE_OFFER_ACCEPT' => $system->print_money_nosymbol($make_offer_accept,false),
+// bof make offer
+    // eof make offer
+</textarea></div>
+<br>
+in includes/function-sell.php
+<br>
+find around line  72
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $a_ends = (isset($_POST['a_ends'])) ? $dt->convertToDatetime($_POST['a_ends']) : $_SESSION['SELL_ends'];
+   
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    $make_offer= (isset($_POST['make_offer'])) ? $_POST['make_offer'] : $_SESSION['SELL_make_offer'];
+    $make_offer_reject= (isset($_POST['make_offer_reject'])) ? $_POST['make_offer_reject'] : $_SESSION['SELL_make_offer_reject'];
+    $make_offer_accept= (isset($_POST['make_offer_accept'])) ? $_POST['make_offer_accept'] : $_SESSION['SELL_make_offer_accept'];
+    //eof make offer
+</textarea></div>
+<br>
+find around line 140
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $_SESSION['SELL_is_featured'] = $is_featured;
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    $_SESSION['SELL_make_offer'] = $make_offer;
+    $_SESSION['SELL_make_offer_reject'] = $make_offer_reject;
+    $_SESSION['SELL_make_offer_accept'] = $make_offer_accept;
+    // eof make offer
+</textarea></div>
+<br>
+find around  180
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $_SESSION['SELL_start_now'] = '';
+</textarea>
+<br>
+add after 
+<br>
+<textarea rows="4"cols="150" readonly>
+    //bof make offer
+    $_SESSION['SELL_make_offer'] ='';
+    $_SESSION['SELL_make_offer_reject'] ='';
+    $_SESSION['SELL_make_offer_accept'] ='';
+   // eof make offer
+</textarea></div>
+<br>
+find around line 235
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    featured = :featured,
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    make_offer = :make_offer,
+    make_offer_reject = :make_offer_reject,
+    make_offer_accept = :make_offer_accept,
+</textarea></div>
+<br>
+find around line 265
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $params[] = array(':featured', $_SESSION['SELL_is_featured'], 'bool');
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    $params[] = array(':make_offer', $_SESSION['SELL_make_offer'], 'str');
+    $params[] = array(':make_offer_reject', $_SESSION['SELL_make_offer_reject'], 'float');
+    $params[] = array(':make_offer_accept', $_SESSION['SELL_make_offer_accept'], 'float');
+    // eof make offer
+</textarea></div>
+<br>
+find around line 300
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+   ,tax,taxinc
+</textarea>
+<br>
+add inline before
+<br>
+<textarea rows="4"cols="150" readonly>
+    ,make_offer,make_offer_reject,make_offer_accept
+  
+</textarea></div>
+<br>
+in the same place find 
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    ,:tax,:taxinc
+</textarea>
+<br>
+add inline before
+<br>
+<textarea rows="4"cols="150" readonly>
+    ,:make_offer,:make_offer_reject,:make_offer_accept
+</textarea></div>
+<br>
+few lines bellow  around 330
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $params[] = array(':featured', $_SESSION['SELL_is_featured'], 'bool');
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer              
+    $params[] = array(':make_offer', $_SESSION['SELL_make_offer'], 'str');
+   // $params[] = array(':make_offer_reject', $_SESSION['SELL_make_offer_reject'], 'float');
+    $params[] = array(':make_offer_reject', $system->input_money(($_SESSION['SELL_make_offer'] == 'yes') ? $_SESSION['SELL_make_offer_reject'] : 0), 'float');
+    $params[] = array(':make_offer_accept', $system->input_money(($_SESSION['SELL_make_offer'] == 'yes') ? $_SESSION['SELL_make_offer_accept'] : 0), 'float');
+ //   $params[] = array(':make_offer_accept', $_SESSION['SELL_make_offer_accept'], 'float');
+    //eof make offer
+</textarea></div>
+<br>
+find around line 380
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'extracat',  
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    'offer',
+</textarea></div>
+<br>
+find around 420
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $params[] = array(':extracat_fee', $fee_data['extracat_fee'], 'float');
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    // bof make offer
+    $params[] = array(':offer_fee', $fee_data['offer_fee'], 'float');
+     // eof make oofer
+</textarea></div>
+<br>
+find around 450
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'picture_fee' => 0,
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    'offer_fee' => 0, 
+</textarea></div>
+<br>
+find around line 510
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    if ($row['type'] == 'relist_fee' && $relist > 0) {
+        $fee_data['relist_fee'] = ($row['value'] * $relist);
+        $fee_value = bcadd($fee_value, ($row['value'] * $relist), $system->SETTINGS['moneydecimals']);
+    }
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+ 
+    // bof make offer
+    if ($row['type'] == 'offer_fee' && $offer > 0) {
+        $fee_data['offer_fee'] = ($row['value'] * $offer);
+        $fee_value = bcadd($fee_value, ($row['value'] * $offer), $system->SETTINGS['moneydecimals']);
+                  }
+                  // eof make offer
+</textarea></div>
+in item.php
+<br>
+find around line 555
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    'B_SHOW_ADDITIONAL_SHIPPING_COST' => ($auction_data['additional_shipping_cost'] > 0),
+</textarea>
+<br>
+add before
+<br>
+<textarea rows="4"cols="150" readonly>
+    //bof make offer
+    'ITEM_SHOW_OFFER'=>$auction_data['make_offer'],
+    'OFFER_ACCEPT'=>$auction_data['make_offer_accept'],
+    'OFFER_REJECT'=>$auction_data['make_offer_reject'],
+    'VIEWING_BIDDER'=>$user->user_data['id'],
+    'TIME_BLUB'=> time()
+    // eof make offer
+</textarea></div>
+<br>
+in themes/modern/item.tpl
+<br>
+find around line 215
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+ <!-- IF B_HASENDED eq false and B_CAN_BUY -->
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+   <!-- bof make offer -->
+   <!-- IF SHOW_OFFER_BUTTON -->
+	<div class="well well-sm">
+		<div class="row">
+			 
+		 <form name="offer" action="{SITEURL}make_offer.php" method="post">
+           	<div class="form-group">
+			<div class="col-md-3 col-md-offset-2">
+		   <input type="text" class="form-control" id="offer_price" placeholder="Enter Yoour Offer" name="offer_price">
+			</div>
+			<div class="col-md-5"></div>
+			<div class="col-md-5">
+			<div class="bg-warning md-padding"> {L_9032}</div>
+			</div>
+		   <input type="hidden"  id="b_first_offer" name="b_first_offer" value=1>
+           <input type="hidden" class="form-group" id="offer_item" value="{TITLE}" name="offer_item">
+		   <input type="hidden" class="form-group" id="offer_item_id" value="{ID}" name="offer_item_id">
+           <input type="hidden"  id="offer_item_image" value="{PIC_URL}" name="offer_item_image">
+           <input type="hidden"  id="offer_item_owner" value="{SELLER_ID}" name="offer_item_owner">
+           <input type="hidden"  id="offer_sender" value="{VIEWING_BIDDER}" name="offer_sender">
+           <input type="hidden"  id="offer_reciever" value="{SELLER_ID}"  name="offer_reciver">
+           <input type="hidden"  id="offer_date" value="{TIME_BLUB}" name="offer_date">
+           <input type="hidden"  id="offer_status" value="pending" name="offer_status">
+           <input type="hidden"  id="offer_reject" value="{OFFER_REJECT}" name="offer_reject">
+           <input type="hidden"  id="offer_accept" value="{OFFER_ACCEPT}" name="offer_accept">
+           <input type="hidden"  id="make_offer" value= "offer" name="make_offer">
+           <input type="hidden"  id="offer_action" value="action" name="offer_action">
+		   <input type="hidden" name="csrftoken" value="{_CSRFTOKEN}">
+           <input type="hidden"  id="offer_counter_offer" value="0" name="offer_counter_offer">
+       
+		   <input type="hidden"  id="offer_item_title" value="{TITLE}" name="offer_item_title">
+		   <input type="hidden"  id="offer_item_seller_nick" value="{SELLER_NICK}" name="offer_item_seller_nick">
+		   <input type="hidden"  id="offer_can_buy" value="{B_CAN_BUY}" name="offer_can_buy">
+		   <input type="hidden"  id="offer_item_qty" value="{QTY}" name="offer_item_qty">
+		   <input type="hidden"  id="offer_item_shipping" value="{SHIPPING_COST}" name="offer_item_shipping">
+		   <input type="hidden"  id="offer_item_shipping_additional" value="{ADDITIONAL_SHIPPING_COST}" name="offer_item_shipping_additional">
+		
+		   
+		   </div>
+		  <div class="col-md-8 col-md-offset-2">
+		  <br>
+		   <button type="submit" class="form-control btn btn-success">{l_9501}</button>
+         </div>
+		 </form>
+		  </div>
+		 
+		 <!-- ENDIF -->
+		  </div>
+			</div>
+	<!-- eof make offer -->							
+</textarea></div>
+<br>
+in themes/modern/sell.tpl
+<br>
+find around line 54
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $("#minval_text").text("{L_038}");
+</textarea>
+<br>
+add after
+
+<br>
+<textarea rows="4"cols="150" readonly>
+    $(".dutchshow").show();
+</textarea></div>
+<br>
+find around line 64
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    $("#minval_text").text("{L_020}");
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    $(".dutchshow").hide();
+</textarea></div>
+<br>
+find around line 365
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <input type="text" name="buy_now_price" id="bn" class="form-control" value="{BN_PRICE}">
+    {CURRENCY}
+</div>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+   <!-- IF B_SHOW_OFFERME -->
+	<!-- IF B_SHOW_OFFERME_ZERO -->
+	<div class="form-group col-md-12 " >
+    	
+		<!-- ENDIF -->
+	<!-- IF B_SHOW_OFFERME_ONE-->
+	<div class="form-group col-md-12  dutchshow "  style="display:none;">
+	<!-- ENDIF -->
+	<!-- IF B_SHOW_OFFERME_TWO -->
+	<div class="form-group col-md-12 dutchhide" >
+	<!-- ENDIF -->	
+    <label>{L_9021}</label>
+						<div class="radio">
+							<label class="radio-inline">
+								<input type="radio" name="make_offer" id="mo_no" value="no" {MAKE_OFFER_N}>
+								{L_no}
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="make_offer" id="mo_yes" value="yes" {MAKE_OFFER_Y}>
+								{L_yes}
+							</label>
+						</div>
+						<label>{L_9022}</label>
+						<div><input type="text" name="make_offer_reject" id="make_offer_reject" class="form-control" value="{MAKE_OFFER_REJECT}">
+	                    {CURRENCY}</div>
+                        <label>{L_9023}</label>
+						<div><input type="text" name="make_offer_accept" id="make_offer_accept" class="form-control" value="{MAKE_OFFER_ACCEPT}">
+	                {CURRENCY}</div>
+					</div>
+			<!-- ENDIF -->		
+</textarea></div>
+<br>
+in themes/modern/user_menu.tpl
+<br>
+find around line 10
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <a class="list-group-item" href="selleremails.php">{L_25_0188}</a>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    <a class="list-group-item" href="viewbuyeroffers.php">{L_1455}</a>
+</textarea></div>
+<br>
+find around line 58
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <a class="list-group-item" href="buying.php">{L_454}</a>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    <a class="list-group-item" href="youroffers.php">{L_1454}</a>
+</textarea></div>
+<br>
+in theme/modern/user_menu/header.tpl
+<br>
+find around line 72
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <a class="list-group-item" href="selling.php">{L_453}</a>
+</textarea>
+<br>
+add after
+<br>
+<textarea rows="4"cols="150" readonly>
+    <a class="list-group-item" href="viewselleroffers.php">{L_9453}</a>
+</textarea></div>
+<br>
+find around line 80
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+    <a class="list-group-item" href="buying.php">{L_454}</a>
+</textarea>
+<br>
+add after 
+<br>
+<textarea rows="4"cols="150" readonly>
+    <a class="list-group-item" href="youroffers.php">{L_1454}</a>
+   
+</textarea></div>
+<br>
+These are the database changes. Run them with phpmyadmin or something like that. Make sure to adjust the prefix
+<br>
+<div><input type='checkbox' name='groupid' value='1'>check to mark done<br>
+<textarea rows="4" cols="150" readonly>
+DROP TABLE IF EXISTS `webid_offers`;
+CREATE TABLE `webid_offers` (
+  `offer_id` int NOT NULL,
+  `offer_item_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `offer_item_image` varchar(128) NOT NULL,
+  `offer_sender` varchar(128) NOT NULL,
+  `offer_reciever` varchar(128) NOT NULL,
+  `offer_status` varchar(128) NOT NULL,
+  `offer_price` varchar(128) NOT NULL DEFAULT '0',
+  `offer_counter_offer` varchar(128) NOT NULL,
+  `offer_date` datetime DEFAULT NULL,
+  `offer_sender_role` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `offer_item_owner` varchar(64) DEFAULT NULL,
+  `offer_item_title` varchar(128) DEFAULT NULL,
+  `offer_item_seller_nick` varchar(128) DEFAULT NULL,
+  `offer_item_qty` int NOT NULL DEFAULT '0',
+  `offer_item_shipping` varchar(128) DEFAULT NULL,
+  `offer_item_shipping_additional` varchar(128) DEFAULT NULL,
+  `offer_msg` varchar(3000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+ALTER TABLE `webid_auctions` ADD `make_offer` FLOAT(64) NOT NULL DEFAULT 'o' AFTER `bn_sale`;
+ALTER TABLE `webid_auctions` ADD `make_offer_reject` FLOAT(64) NOT NULL DEFAULT 'o' AFTER `make_offer`;
+ALTER TABLE `webid_auctions` ADD `make_offer_accept` FLOAT(64) NOT NULL DEFAULT 'o' AFTER `make_offer_reject`;
+
+INSERT INTO `webid_fees` (`id`, `fee_from`, `fee_to`, `fee_type`, `value`, `type`, `use_counter`) VALUES (NULL, '0.00', '0.00', 'flat', '15000.00', 'offer_fee', '0')
+INSERT INTO `webid_settings` (`fieldname`, `fieldtype`, `value`, `modifieddate`, `modifiedby`) VALUES ('offer_available', 'bool', 'y', '1623698099', '1'), ('offer_available_for', 'int', '2', '1623698099', '1')
+INSERT INTO `webid_settings` (`fieldname`, `fieldtype`, `value`, `modifieddate`, `modifiedby`) VALUES ('offer_available_for', 'int', '2', '1623698099', '1')
+</textarea>
+
+
+
+<br>
+<script>
+    $("input[type='checkbox']").change(function(){
+    if($(this).is(":checked")){
+        $(this).parent().addClass("redBackground"); 
+
+    }else{
+        $(this).parent().removeClass("redBackground");  
+    }
+});
+</script>
+<style>
+.redBackground{
+background-color:lightblue
+}
+</style>
