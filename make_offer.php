@@ -63,6 +63,23 @@ if ($b_first_offer == '1'){
 if($offer_action='action'){
     
     if ($make_offer='offer'){
+        $query = "SELECT * FROM " . $DBPrefix . "auctions WHERE id = :item_id";
+    $params = array();
+    $params[] = array(':item_id', $offer_item_id, 'int');
+    $db->query($query, $params);
+    $owner_id=$db->result();
+if ($owner_id ['user']== $user->user_data['id']){
+    $template->assign_vars(array(
+        'TITLE_MESSAGE' => $MSG['9415'],
+        'BODY_MESSAGE' => $ERR_9000
+        ));
+include 'header.php';
+$template->set_filenames(array(
+        'body' => 'message.tpl'
+        ));
+$template->display('body');
+include 'footer.php';
+exit; // kill the page
 
         //here is the first offer for an auction item so we set the status as pending
         $offer_status='pending';
