@@ -519,7 +519,7 @@ add after
  
     // bof make offer
     if ($row['type'] == 'offer_fee' && $offer > 0) {
-        $fee_data['offer_fee'] = ($row['value'] * $offer);
+        $fee_data['offer_fee'] = ($row['value']);
         $fee_value = bcadd($fee_value, ($row['value'] * $offer), $system->SETTINGS['moneydecimals']);
                   }
                   // eof make offer
